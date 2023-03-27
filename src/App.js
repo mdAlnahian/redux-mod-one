@@ -28,7 +28,7 @@ function App() {
       </div>
       {/* <ShortForm></ShortForm> */}
       {/* <CounterNew></CounterNew> */}
-      {/* <Counter></Counter> */}
+      <Counter></Counter>
       <LongForm></LongForm>
     </COUNTER_CONTEXT.Provider>
   );
