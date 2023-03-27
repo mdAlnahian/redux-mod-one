@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useState } from "react";
+import "./App.css";
+import Counter from "./counter/Counter";
+import CounterNew from "./counter/CounterNew";
+import LongForm from "./counter/LongForm";
+import Parent from "./counter/Parent";
+import ShortForm from "./counter/ShortForm";
+
+export const COUNTER_CONTEXT = createContext();
 
 function App() {
+  const [count, setCount] = useState(0);
+
+  const value = {
+    count,
+    setCount,
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <COUNTER_CONTEXT.Provider value={value}>
+      <div className="">
+        <div className="bg-blue-500 text-white text-3xl p-6 text-center">
+          Counter App is Here!
+        </div>
+
+        {/* <Child className="flex justify-center items-center"></Child> */}
+        {/* <Parent></Parent> */}
+      </div>
+      {/* <ShortForm></ShortForm> */}
+      {/* <CounterNew></CounterNew> */}
+      {/* <Counter></Counter> */}
+      <LongForm></LongForm>
+    </COUNTER_CONTEXT.Provider>
   );
 }
 
